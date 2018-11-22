@@ -4,12 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 data class WallpaperResponse(
 
-	@field:JsonProperty("hits")
-	val hits: List<HitsItem>,
+    @field:JsonProperty("hits")
+	val hits: List<HitsItem> = listOf(),
 
-	@field:JsonProperty("total")
-	val total: Int,
+    @field:JsonProperty("total")
+	val total: Int = 0,
 
-	@field:JsonProperty("totalHits")
-	val totalHits: Int
+    @field:JsonProperty("totalHits")
+	val totalHits: Int = 0
 )

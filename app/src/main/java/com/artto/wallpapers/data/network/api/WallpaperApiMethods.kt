@@ -7,7 +7,7 @@ import retrofit2.http.QueryMap
 
 interface WallpaperApiMethods {
 
-    @GET
+    @GET("api/")
     fun getWallpapers(@QueryMap parameters: Map<String, String>): Single<WallpaperResponse>
 
 }

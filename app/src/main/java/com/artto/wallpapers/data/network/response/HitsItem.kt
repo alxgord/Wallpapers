@@ -5,68 +5,74 @@ import com.fasterxml.jackson.annotation.JsonProperty
 data class HitsItem(
 
 	@field:JsonProperty("webformatHeight")
-	val webFormatHeight: Int,
+	val webformatHeight: Int = 0,
 
 	@field:JsonProperty("imageWidth")
-	val imageWidth: Int,
+	val imageWidth: Int = 0,
 
 	@field:JsonProperty("favorites")
-	val favorites: Int,
-
-	@field:JsonProperty("webformatURL")
-	val webFormatURL: String,
+	val favorites: Int = 0,
 
 	@field:JsonProperty("previewHeight")
-	val previewHeight: Int,
+	val previewHeight: Int = 0,
+
+	@field:JsonProperty("webformatURL")
+	val webformatURL: String = "",
 
 	@field:JsonProperty("userImageURL")
-	val userImageURL: String,
-
-	@field:JsonProperty("comments")
-	val comments: Int,
+	val userImageURL: String = "",
 
 	@field:JsonProperty("previewURL")
-	val previewURL: String,
+	val previewURL: String = "",
+
+	@field:JsonProperty("comments")
+	val comments: Int = 0,
 
 	@field:JsonProperty("type")
-	val type: String,
+	val type: String = "",
 
 	@field:JsonProperty("imageHeight")
-	val imageHeight: Int,
+	val imageHeight: Int = 0,
 
 	@field:JsonProperty("tags")
-	val tags: String,
+	val tags: String = "",
 
 	@field:JsonProperty("previewWidth")
-	val previewWidth: Int,
+	val previewWidth: Int = 0,
 
-	@field:JsonProperty("user_id")
-	val userId: Int,
+	@field:JsonProperty("fullHDURL")
+	val fullHDURL: String = "",
 
 	@field:JsonProperty("downloads")
-	val downloads: Int,
+	val downloads: Int = 0,
+
+	@field:JsonProperty("user_id")
+	val userId: Int = 0,
 
 	@field:JsonProperty("largeImageURL")
-	val largeImageURL: String,
+	val largeImageURL: String = "",
+
+	@field:JsonProperty("imageURL")
+	val imageURL: String = "",
 
 	@field:JsonProperty("pageURL")
-	val pageURL: String,
+	val pageURL: String = "",
 
 	@field:JsonProperty("id")
-	val id: Int?,
+	val id: Int = 0,
 
 	@field:JsonProperty("imageSize")
-	val imageSize: Int,
+	val imageSize: Int = 0,
 
 	@field:JsonProperty("webformatWidth")
-	val webFormatWidth: Int,
+	val webformatWidth: Int = 0,
 
 	@field:JsonProperty("user")
-	val user: String,
+	val user: String = "",
 
 	@field:JsonProperty("views")
-	val views: Int,
+	val views: Int = 0,
 
 	@field:JsonProperty("likes")
-	val likes: Int
+	val likes: Int = 0
 )
