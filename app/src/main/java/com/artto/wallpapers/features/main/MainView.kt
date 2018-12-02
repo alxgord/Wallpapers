@@ -9,4 +9,7 @@ interface MainView : BaseView {
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun notifyDataSetChanged()
 
+    @StateStrategyType(OneExecutionStateStrategy::class)
+    fun notifyItemRangeInserted(position: Int, count: Int)
+
 }

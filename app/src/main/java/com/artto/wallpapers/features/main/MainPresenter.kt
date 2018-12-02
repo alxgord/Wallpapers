@@ -16,20 +16,34 @@ class MainPresenter(private val interact: MainInteract) : BasePresenter<MainView
 
     private val items = ArrayList<HitsItem>()
 
+    private val itemsPerPage = 30
+
+    private var hasNext = true
+    private var nextPage = 2
+
     override fun onFirstViewAttach() {
-        interact.getPopularWallpapers()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeBy(
-                onSuccess = { updateItems(it.hits) },
-                onError = { it.printStackTrace() })
-            .addTo(disposables)
+        getPopulartWallpapers()
+    }
+
+    private fun getPopulartWallpapers() {
+        if (hasNext)
+            interact.getPopularWallpapers(page = nextPage.toString())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                    onSuccess = {
+                        updateItems(it.hits)
+                        hasNext = it.totalHits - items.size >= itemsPerPage
+                        if (hasNext) nextPage++
+                    },
+                    onError = { it.printStackTrace() })
+                .addTo(disposables)
     }
 
     private fun updateItems(new: List<HitsItem>) {
-        items.clear()
+        val position = items.size
         items.addAll(new)
-        viewState.notifyDataSetChanged()
+        viewState.notifyItemRangeInserted(position, new.size)
     }
 
     override fun getItemCount(): Int = items.size
@@ -38,4 +52,8 @@ class MainPresenter(private val interact: MainInteract) : BasePresenter<MainView
         view.setImage(items[position].webformatURL)
 
     override fun onClicked(position: Int) {}
+
+    fun onLoadMore() {
+        getPopulartWallpapers()
+    }
 }

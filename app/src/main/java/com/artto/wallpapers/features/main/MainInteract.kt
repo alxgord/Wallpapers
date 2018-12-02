@@ -6,6 +6,7 @@ import io.reactivex.Single
 
 class MainInteract(private val wallpaperRepository: WallpaperRepository) {
 
-    fun getPopularWallpapers(): Single<WallpaperResponse> = wallpaperRepository.getPopular()
+    fun getPopularWallpapers(page: String = "1", perPage: String = "20"): Single<WallpaperResponse> =
+        wallpaperRepository.getPopular(page, perPage)
 
 }
