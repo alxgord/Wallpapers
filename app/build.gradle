@@ -33,8 +33,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':data')
 
+
     //Kotlin
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
 
     //Adnroid
     implementation "androidx.appcompat:appcompat:$appcompat_version"
@@ -42,33 +44,41 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
     implementation "com.google.android.material:material:$material_version"
 
+
     //NavigationUI
     implementation "android.arch.navigation:navigation-fragment-ktx:$navigation_version"
     implementation "android.arch.navigation:navigation-ui-ktx:$navigation_version"
+
 
     //RxJava 2
     implementation "io.reactivex.rxjava2:rxandroid:$rx_android_version"
     implementation "io.reactivex.rxjava2:rxjava:$rx_java_version"
     implementation "io.reactivex.rxjava2:rxkotlin:$rx_kotlin_version"
 
+
     //Retrofit
     implementation "com.squareup.retrofit2:converter-jackson:$retrofit_converter_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_adapter_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_interceptor_version"
 
+
     //Koin
     implementation "org.koin:koin-android:$koin_version"
+
 
     //Moxy
     implementation "com.arello-mobile:moxy-app-compat:$moxy_version"
     kapt "com.arello-mobile:moxy-compiler:$moxy_version"
 
+
     //Glide
     implementation "com.github.bumptech.glide:glide:$glide_version"
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
+
     //ProgressBar
     implementation "com.budiyev.android:circular-progress-bar:$progress_bar_version"
+
 
     //Testing
     testImplementation 'junit:junit:4.12'

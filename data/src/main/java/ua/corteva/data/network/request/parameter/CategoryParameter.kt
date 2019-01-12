@@ -24,6 +24,29 @@ class CategoryParameter(override val value: String, override val key: String = "
         const val BUILDINGS = "buildings"
         const val BUSINESS = "business"
         const val MUSIC = "music"
+
+        val categories = listOf(
+            FASHION,
+            NATURE,
+            BACKGROUNDS,
+            SCIENCE,
+            EDUCATION,
+            PEOPLE,
+            FEELINGS,
+            RELIGION,
+            HEALTH,
+            PLACES,
+            ANIMALS,
+            INDUSTRY,
+            FOOD,
+            COMPUTER,
+            SPORTS,
+            TRANSPORTATION,
+            TRAVEL,
+            BUILDINGS,
+            BUSINESS,
+            MUSIC
+        )
     }
 
 }
