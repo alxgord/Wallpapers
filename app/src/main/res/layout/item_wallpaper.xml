@@ -5,12 +5,25 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/image_view_item_wallpaper"
+        android:id="@+id/iv_item_wallpaper"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
         tools:ignore="ContentDescription"
         tools:layout_height="200dp"
         tools:src="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/tv_item_caption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#99000000"
+        android:padding="6dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:visibility="gone"
+        tools:text="Caption"
+        tools:visibility="visible" />
 
 </FrameLayout>

@@ -1,10 +1,10 @@
-package com.artto.wallpapers.ui.main.recycler
+package com.artto.wallpapers.ui.adapter.wallpaper
 
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class MainRecyclerItemDecorator(private val itemSpacing: Int, private val columnsCount: Int) : RecyclerView.ItemDecoration() {
+class WallpapersRecyclerItemDecorator(private val itemSpacing: Int, private val columnsCount: Int) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, p: RecyclerView.State) {
         val position = parent.getChildLayoutPosition(view) + 1

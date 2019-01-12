@@ -1,4 +1,4 @@
-package com.artto.wallpapers.ui.main.recycler
+package com.artto.wallpapers.ui.adapter.wallpaper
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,15 +9,15 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_wallpaper.view.*
 
 
-class MainRecyclerAdapter(
+class WallpaperRecyclerAdapter(
     private val adapterPresenter: AdapterPresenter,
     private val itemWidth: Int,
     private val itemHeight: Int
 ) :
-    RecyclerView.Adapter<MainWallpaperViewHolder>() {
+    RecyclerView.Adapter<WallpaperViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): MainWallpaperViewHolder =
-        MainWallpaperViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): WallpaperViewHolder =
+        WallpaperViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_wallpaper, parent, false),
             itemWidth,
             itemHeight
@@ -25,25 +25,29 @@ class MainRecyclerAdapter(
 
     override fun getItemCount(): Int = adapterPresenter.getItemCount()
 
-    override fun onBindViewHolder(viewHolder: MainWallpaperViewHolder, position: Int) =
+    override fun onBindViewHolder(viewHolder: WallpaperViewHolder, position: Int) =
         adapterPresenter.onBindViewHolder(viewHolder, position)
 }
 
 
-class MainWallpaperViewHolder(itemView: View, width: Int, height: Int) : RecyclerView.ViewHolder(itemView), ItemView {
+class WallpaperViewHolder(itemView: View, width: Int, height: Int) : RecyclerView.ViewHolder(itemView),
+    ItemView {
 
     init {
         with(itemView) {
-            image_view_item_wallpaper.layoutParams.width = width
-            image_view_item_wallpaper.layoutParams.height = height
+            iv_item_wallpaper.layoutParams.width = width
+            iv_item_wallpaper.layoutParams.height = height
         }
     }
 
-    override fun setData(url: String, listener: (Int) -> Unit) {
+    override fun setData(url: String, caption: String?, listener: (Int) -> Unit) {
         with(itemView) {
             Glide.with(this)
                 .load(url)
-                .into(image_view_item_wallpaper)
+                .into(iv_item_wallpaper)
+
+            tv_item_caption.visibility = if (caption != null) View.VISIBLE else View.GONE
+            tv_item_caption.text = caption ?: ""
 
             setOnClickListener { listener.invoke(adapterPosition) }
         }
@@ -58,5 +62,5 @@ interface AdapterPresenter {
 
 
 interface ItemView {
-    fun setData(url: String, listener: (Int) -> Unit)
+    fun setData(url: String, caption: String? = null, listener: (Int) -> Unit)
 }
