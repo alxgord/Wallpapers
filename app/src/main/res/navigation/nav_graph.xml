@@ -7,8 +7,30 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.artto.wallpapers.ui.main.MainFragment"
+        android:name="com.artto.wallpapers.ui.categories.CategoriesFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_wallpapers">
+
+        <action
+            android:id="@+id/action_mainFragment_to_wallpapersListFragment"
+            app:destination="@id/wallpapersListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/wallpapersListFragment"
+        android:name="com.artto.wallpapers.ui.wallpapers.WallpapersFragment"
+        android:label="WallpapersListFragment"
+        tools:layout="@layout/fragment_wallpapers">
+
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
+
+    </fragment>
 
 </navigation>

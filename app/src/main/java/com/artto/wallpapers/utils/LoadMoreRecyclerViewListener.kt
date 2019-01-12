@@ -5,13 +5,13 @@ import androidx.recyclerview.widget.RecyclerView
 
 class LoadMoreRecyclerViewListener(
     private val layoutManager: GridLayoutManager,
-    private val listener: () -> Unit
+    private val listener: (() -> Unit)? = null
 ) : RecyclerView.OnScrollListener() {
 
     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
         super.onScrolled(recyclerView, dx, dy)
 
-        if (dy > 0) {
+        if (listener != null && dy > 0) {
             val firsVisible = layoutManager.findFirstVisibleItemPosition()
             val visibleCount = layoutManager.childCount
             val totalCount = layoutManager.itemCount
